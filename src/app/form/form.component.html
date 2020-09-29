@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form [formGroup]="teamForm">
+                <div class="form-group">
+                    <label for="EstateInput">Estado</label>
+                    <input type="text" class="form-control" id="EstateInput" formControlName="estate">
+                </div>
+                <div class="form-group">
+                    <label for="NameInput">Nombre</label>
+                    <input type="text" class="form-control" id="NameInput" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label for="NicknameInput">Alias</label>
+                    <input type="text" class="form-control" id="NicknameInput" formControlName="nickname">
+                </div>
+                <div class="form-group">
+                    <label for="ColorInput">Color</label>
+                    <input type="text" class="form-control" id="ColorInput" formControlName="color">
+                </div>
+                <div class="form-group">
+                    <label for="YearInput">Año de Creación</label>
+                    <input type="text" class="form-control" id="YearInput" formControlName="year">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" (click)="saveTeam()">Crear</button>
+                <button type="submit" class="btn btn-secondary btn-block" (click)="updateTeam()">Editar</button>
+
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="SearchInput">Buscar</label>
+                <input type="text" class="form-control mb-3" id="SearchInput" [formControl]="search">
+                <button type="button" class="btn btn-primary btn-block" (click)="searchTeam()">Buscar</button>
+                <button type="button" class="btn btn-primary btn-block" (click)="deleteTeam()">Eliminar</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>{{ teamSearched[0]?.name || '' }}</h2>
+            <p>{{ teamSearched[0]?.estate || '' }}</p>
+            <p>{{ teamSearched[0]?.nickname || '' }}</p>
+            <p>{{ teamSearched[0]?.color || '' }}</p>
+            <p>{{ teamSearched[0]?.year || '' }}</p>
+        </div>
+    </div>
+</div>
